@@ -1,0 +1,7 @@
+{
+  "name": "rjs",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

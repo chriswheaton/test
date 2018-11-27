@@ -1,0 +1,14 @@
+page-home {
+	@include rjs-contact;
+	.starred {
+		padding-top: 15px;
+		.list-header {
+			border-top: none !important;
+			background-color: #BCE0FD;
+			color: #2699FB;
+			font-size: 1.65rem;
+			font-weight: bold;
+			margin-bottom: 0;
+		}
+	}
+}

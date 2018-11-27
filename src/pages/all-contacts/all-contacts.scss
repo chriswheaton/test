@@ -1,0 +1,44 @@
+page-all-contacts {
+	ion-content{
+		padding-left: 16px !important;
+		padding-right: 26px !important;
+	}
+	.letter-container {
+		position: fixed;
+		right:0;
+		z-index: 1000;
+		width:35px;
+		min-width: 25px;
+		max-width: 35px;
+		background-color: #FFFFFF;
+		text-align: center;
+		height: calc(100vh - 56px);
+		.letter{
+			height: 3.8461%;
+			width: 100%;
+			vertical-align: middle;
+			line-height: 30px;
+			font-size: 1.3rem;
+			color: #BCE0FD;
+			&.active{
+				color:#2699FB;
+				font-weight: bold;
+			}
+		}
+	}
+	#contact-container {
+		background-color: #F1F9FF;
+		margin-right: 35px;
+		.item-divider-md,
+		.item-divider-ios {
+			background-color: #BCE0FD;
+			color:#2699FB;
+			font-weight: bold;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			height: 25px;
+			line-height: 25px;
+		}
+		@include rjs-contact;
+	}
+}

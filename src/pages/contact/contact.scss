@@ -1,0 +1,114 @@
+page-contact {
+	@include rjs-contact;
+	ion-card.card {
+		margin:0;
+		width: 100vw !important;
+		background: transparent;
+		box-shadow: none;
+		.contact-header {
+			min-height: 200px;
+			border-bottom: 1px #2699FB solid;
+			background: #BCE0FD;
+			position: relative;
+			.img-container {
+				padding-top: 15px;
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				img {
+					padding: 0;
+					height: 150px;
+					width: 150px;
+					z-index: 10;
+					border-radius: 50%;
+					border: 2px #2699FB solid;
+					background: #F1F9FF;
+					margin: 0px 0;
+				}
+			}
+			.contact-details{
+				h2 {
+					text-transform: capitalize;
+					font-weight: bold;
+					color: #2699FB;
+					font-size: 2.2rem;
+					text-shadow: 1px 1px 0px rgba(255, 255, 255, 1);
+				}
+				p {
+					color: #2699FB;
+					font-weight: bold;
+					font-size: 1.5rem;
+					text-shadow: 1px 1px 0px rgba(255, 255, 255, 1);
+				}
+				.button-clear-md:hover:not(.disable-hover),
+				.button-clear-ios:hover:not(.disable-hover) {
+					background-color: rgba(158, 158, 158, 0);
+				}
+
+			}
+			.contact-actions{
+				background-color: #FFFFFF;
+				.button-inner {
+					flex-flow: column;
+					ion-icon {
+						display: inline-block;
+						font-size: 2rem;
+					}
+					span {
+						display: inline-block;
+						vertical-align: middle;
+						font-size: 1.35rem;
+						padding-top:5px;
+					}
+				}
+			}
+		}
+		.contact-details {
+			ion-item.item {
+				.input-wrapper{
+					padding-top: 10px;
+					padding-bottom: 10px;
+					ion-icon{
+						margin-left: 5px;
+						margin-right: 20px;
+					}
+				}
+				.icon {
+					display: inline-block;
+					font-size: 1.85rem;
+					vertical-align: middle;
+				}
+				.label{
+					color:#2699FB;
+					span{
+						display: inline-block;
+						vertical-align: middle;
+						font-size: 1.35rem;
+					}
+				}
+				&:last-child {
+					.item-inner {
+					border-bottom: none !important;
+					}
+				}
+			}
+			.item-inner{
+				border-bottom: 1px #BCE0FD solid !important;
+
+			}
+		}
+		.contact-manager,
+		.contact-reports {
+			padding-bottom: 20px;
+			.list-header {
+				border-top: none !important;
+				background-color: #BCE0FD;
+				color:#2699FB;
+				font-size: 1.65rem;
+				font-weight: bold;
+				margin-bottom: 0;
+			}
+		}
+	}
+}

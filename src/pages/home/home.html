@@ -1,0 +1,44 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title></ion-title>
+	</ion-navbar>
+	<ion-searchbar
+		placeholder="Filter Items with Cancel"
+		animated="true"
+		autocomplete="on"
+		autocorrect="on"
+		cancelButtonText="Cancel"
+		debounce="500"
+		placeholder="Search"
+		showCancelButton="true"
+		spellcheck="false"
+		type="text"
+		[(ngModel)]="searchVal"
+		(ionInput)="searchContacts($event)"
+		(ionCancel)="cancelContacts()"
+		(ionClear)="clearContacts()"></ion-searchbar>
+	<div padding-left padding-right>
+		<button ion-button block (click)="goToAllContacts()">All Contacts</button>
+	</div>
+</ion-header>
+<ion-content no-padding>
+	<ion-list [@listStagger]='searchResults.length'>
+		<button ion-item *ngFor="let c of searchResults" (click)="viewContact(c)">
+			<ion-avatar item-start>
+				<img [src]="c.thumbnailPhoto">
+			</ion-avatar>
+			<h2>{{c.displayName}}</h2>
+			<p>{{c.title}}</p>
+		</button>
+	</ion-list>
+	<ion-list class="starred">
+		<ion-list-header>Starred</ion-list-header>
+		<button ion-item *ngFor="let c of starred" (click)="viewContact(c)">
+			<ion-avatar item-start>
+				<img [src]="c.thumbnailPhoto">
+			</ion-avatar>
+			<h2>{{c.displayName}}</h2>
+			<p>{{c.title}}</p>
+		</button>
+	</ion-list>
+</ion-content>

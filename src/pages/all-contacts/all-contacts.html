@@ -1,0 +1,61 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+<!-- [ngClass]="{'active': c.active, 'inactive': !c.active }" -->
+
+<ion-content>
+	<div class="letter-container">
+		<ng-container *ngFor="let c of contactLetters">
+			<div class="letter" id="letter-{{c.letter}}" [class.active]="c.active" >{{c.letter}}</div>
+		</ng-container>
+	</div>
+	<div id="contact-container" *ngIf="contacts">
+		<ion-item-group *ngFor="let key of contacts | keys" id="{{key}}">
+			<ion-item-divider>{{key}}</ion-item-divider>
+			<button ion-item *ngFor="let c of contacts[key]" (click)="viewContact(c)">
+				<ion-avatar item-start>
+					<img [src]="c.thumbnailPhoto">
+				</ion-avatar>
+				<h2>{{c.displayName}}</h2>
+				<p>{{c.title}}</p>
+			</button>
+		</ion-item-group>
+	</div>
+
+	<!-- <ion-list id="contact-container" *ngIf="contacts">
+		<ion-item class="contact-group" *ngFor="let key of contacts | keys" id="{{key}}">
+			<ion-list>
+				<ion-item *ngFor="let c of contacts[key]">
+					<ion-avatar item-start>
+						<img [src]="c.thumbnailPhoto">
+					</ion-avatar>
+					<h2>{{c.displayName}}</h2>
+					<p>{{c.title}}</p>
+					<button ion-button clear item-end>View</button>
+				</ion-item>
+			</ion-list>
+		</ion-item>
+
+	</ion-list>
+	<div id="contact-container" *ngIf="contacts">
+		<div class="contact-group" *ngFor="let key of contacts | keys" id="{{key}}">
+			<h3 class="contact-group-heading">{{key}}</h3>
+			<div class="contact-group-contacts" *ngFor="let contact of contacts[key]">
+				{{contact.displayName}}
+
+			</div>
+		</div>
+	</div> -->
+	<!-- <div class="scroll-container">
+<ion-scroll scrollY="true">
+
+</ion-scroll>
+
+	</div> -->
+
+
+</ion-content>

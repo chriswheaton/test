@@ -1,0 +1,90 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title></ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-card *ngIf="contact">
+		<div class="contact-header">
+			<div class="img-container">
+				<img [src]="contact?.thumbnailPhoto">
+			</div>
+			<ion-grid class="contact-details">
+				<ion-row>
+					<ion-col col-10>
+						<h2>{{contact.displayName}}</h2>
+						<p>{{contact.title}}</p>
+					</ion-col>
+					<ion-col col-2>
+						<button ion-button icon-only clear (click)="modifyFavorite(contact, isStarred)">
+							<ion-icon *ngIf="isStarred" name="ios-star"></ion-icon>
+							<ion-icon *ngIf="!isStarred" name="ios-star-outline"></ion-icon>
+						</button>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+			<ion-grid class="contact-actions">
+				<ion-row>
+					<ion-col col-1></ion-col>
+					<ion-col col-3>
+						<button ion-button clear>
+						<ion-icon name="call"></ion-icon><span>Call</span>
+					</button>
+					</ion-col>
+					<ion-col col-3>
+						<button ion-button clear>
+							<ion-icon name="mail"></ion-icon><span>Email</span>
+						</button>
+					</ion-col>
+					<ion-col col-3>
+						<button ion-button clear>
+							<ion-icon name="chatboxes"></ion-icon><span>Message</span>
+						</button>
+					</ion-col>
+					<ion-col col-1></ion-col>
+				</ion-row>
+			</ion-grid>
+		</div>
+		<ion-list padding class="contact-details">
+			<ion-item>
+				<ion-icon name="call"></ion-icon><span>{{contact.telephone}}</span>
+			</ion-item>
+			<ion-item>
+				<ion-icon name="mail"></ion-icon><span>{{contact.email}}</span>
+			</ion-item>
+			<ion-item>
+				<ion-icon name="chatboxes"></ion-icon><span>{{contact.telephone}}</span>
+			</ion-item>
+			<ion-item>
+				<ion-icon name="pin"></ion-icon><span class="address">{{contact.street}}<br />{{contact.city}}, {{contact.state}}
+					{{contact.postalCode}}</span>
+			</ion-item>
+		</ion-list>
+		<ion-list padding-top class="contact-manager" [ngSwitch]="contact?.manager === null ? false : true">
+			<ion-list-header>Manager</ion-list-header>
+			<ng-container *ngSwitchCase="true">
+				<button ion-item (click)="viewContact(contact.manager)">
+					<ion-avatar item-start>
+						<img [src]="contact.manager?.thumbnailPhoto">
+					</ion-avatar>
+					<h2>{{contact.manager?.displayName}}</h2>
+					<p>{{contact.manager?.title}}</p>
+				</button>
+			</ng-container>
+			<ion-item *ngSwitchCase="false">No Manager</ion-item>
+		</ion-list>
+		<ion-list padding-top class="contact-reports" [ngSwitch]="contact?.directReports.length < 1 ? false : true">
+			<ion-list-header>Direct Reports</ion-list-header>
+			<ng-container *ngSwitchCase="true">
+				<button ion-item (click)="viewContact(r)" *ngFor="let r of contact.directReports">
+					<ion-avatar item-start>
+						<img [src]="r.thumbnailPhoto">
+					</ion-avatar>
+					<h2>{{r.displayName}}</h2>
+					<p>{{r.title}}</p>
+				</button>
+			</ng-container>
+			<ion-item *ngSwitchCase="false">No Direct Reports</ion-item>
+		</ion-list>
+	</ion-card>
+</ion-content>
